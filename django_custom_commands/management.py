@@ -5,6 +5,7 @@ import os
 import sys
 from collections import defaultdict
 from difflib import get_close_matches
+from pathlib import Path
 
 from django.conf import settings
 from django.core.management import (
@@ -25,7 +26,7 @@ def get_commands():
 
     if hasattr(settings, "CUSTOM_COMMAND_LOCATIONS"):
         for custom_module in reversed(settings.CUSTOM_COMMAND_LOCATIONS):
-            path = os.path.join(custom_module.replace(".", "/"), "management")
+            path = Path(settings.BASE_DIR) / custom_module.replace(".", "/") / "management"
             commands.update({name: custom_module for name in find_commands(path)})
 
     return commands
