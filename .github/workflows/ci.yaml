@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+name: Run tests
+
+jobs:
+  tox_test:
+    name: Tox tests
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run Tox tests
+      id: test
+      uses: fedora-python/tox-github-action@main
+      with:
+        tox_env: ${{ matrix.tox_env }}
+    strategy:
+      matrix:
+        tox_env:
+         - py311
+         - py312
+         - py313
+
+    # Use GitHub's Linux Docker host
+    runs-on: ubuntu-latest
+  pre_cmmit:
+    name: Pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: pre-commit/action@v3.0.1
