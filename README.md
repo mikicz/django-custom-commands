@@ -2,6 +2,8 @@
 
 A Django package which allows specifying custom paths to load managenent commands from. This allows loading management commands which are not in Django apps.
 
+Blog about this package: [Loading Django management commands from custom locations](https://www.mikulaspoul.cz/management-commands-custom-location/).
+
 ## Installation
 
 ```bash
