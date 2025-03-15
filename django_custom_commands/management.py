@@ -27,7 +27,7 @@ def get_commands():
     if hasattr(settings, "CUSTOM_COMMAND_LOCATIONS"):
         for custom_module in reversed(settings.CUSTOM_COMMAND_LOCATIONS):
             path = Path(settings.BASE_DIR) / custom_module.replace(".", "/") / "management"
-            commands.update({name: custom_module for name in find_commands(path)})
+            commands.update(dict.fromkeys(find_commands(path), custom_module))
 
     return commands
 
