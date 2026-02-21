@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-custom-commands"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Django package which allows specifying custom paths to load managenent commands from."
 authors = ["Mikuláš Poul <mikulaspoul@gmail.com>"]
 readme = "README.md"
@@ -12,8 +12,10 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Framework :: Django",
     "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
     "License :: Public Domain",
     "License :: OSI Approved :: MIT License",
 ]
@@ -68,7 +70,6 @@ select = [
 # Never enforce...
 ignore = [
     "E501",   # line length violations
-    "PT004",  # missing-fixture-name-underscore
     "SIM108", # use-ternary-operator
     "RET505", # superfluous-else-return
     "RET506", # superfluous-else-raise

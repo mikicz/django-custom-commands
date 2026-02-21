@@ -24,6 +24,7 @@ jobs:
          - py311
          - py312
          - py313
+         - py314
 
     # Use GitHub's Linux Docker host
     runs-on: ubuntu-latest
